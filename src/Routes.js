@@ -1,9 +1,10 @@
 import React from "react";
+import { BrandInput } from "./components/BrandInput";
 
 const Routes = () => {
   return (
     <div>
-      <h1>Hello World!</h1>
+      <div><BrandInput/></div>
     </div>
   );
 };
