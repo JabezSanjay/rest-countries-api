@@ -1,9 +1,16 @@
 import React from "react";
+import { BrandInput } from "./components/BrandInput";
+import BrandNavbar from "./components/BrandNavbar";
 
 const Routes = () => {
   return (
     <div>
-      <h1>Hello World!</h1>
+      <div>
+        <BrandInput />
+      </div>
+      <div>
+        <BrandNavbar />
+      </div>
     </div>
   );
 };
