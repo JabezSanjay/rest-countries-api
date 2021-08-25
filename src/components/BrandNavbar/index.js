@@ -13,7 +13,7 @@ const BrandNavbar = () => {
             Where in the world?
           </a>
         </div>
-        <div className="text-lg self-center">
+        <div className="text-lg self-center mr-2 md:mr-16 ">
           <button className="flex text-base">
             <HiOutlineMoon className="self-center md:text-xl mr-2" />
             <h6 className="text-blue-veryDarkLMT  md:text-lg font-semibold ">
