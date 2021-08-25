@@ -1,6 +1,7 @@
 import React from "react";
 import BrandInput from "./components/BrandInput";
 import BrandNavbar from "./components/BrandNavbar";
+import BrandOption from "./components/BrandOption";
 
 const Routes = () => {
   return (
@@ -10,6 +11,9 @@ const Routes = () => {
       </div>
       <div>
         <BrandInput />
+      </div>
+      <div>
+        <BrandOption />
       </div>
     </div>
   );
