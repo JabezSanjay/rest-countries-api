@@ -1,15 +1,15 @@
 import React from "react";
-import { BrandInput } from "./components/BrandInput";
+import BrandInput from "./components/BrandInput";
 import BrandNavbar from "./components/BrandNavbar";
 
 const Routes = () => {
   return (
     <div>
       <div>
-        <BrandInput />
+        <BrandNavbar />
       </div>
       <div>
-        <BrandNavbar />
+        <BrandInput />
       </div>
     </div>
   );

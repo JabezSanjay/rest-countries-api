@@ -15,10 +15,8 @@ const BrandNavbar = () => {
         </div>
         <div className="text-lg self-center">
           <button className="flex">
-            <HiOutlineMoon className="self-center mr-2" />
-            <h6 className="text-blue-veryDarkLMT font-semibold mr-20">
-              Dark Mode
-            </h6>
+            <HiOutlineMoon className="self-center text-xl" />
+            <h6 className="text-blue-veryDarkLMT font-semibold ">Dark Mode</h6>
           </button>
         </div>
       </nav>

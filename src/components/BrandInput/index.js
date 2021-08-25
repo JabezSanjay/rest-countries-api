@@ -1,7 +1,7 @@
 import React from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 
-export const BrandInput = () => {
+const BrandInput = () => {
   return (
     <div>
       <div className="flex px-3 py-3 align-middle shadow-md w-96 rounded">
@@ -15,3 +15,5 @@ export const BrandInput = () => {
     </div>
   );
 };
+
+export default BrandInput;
