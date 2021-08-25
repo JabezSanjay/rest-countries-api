@@ -4,7 +4,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 const BrandInput = () => {
   return (
     <div>
-      <div className="flex px-3 py-3 align-middle shadow-md w-96 rounded">
+      <div className="flex px-3 py-3 m-3 align-middle shadow-md md:w-96 rounded bg-white-default">
         <AiOutlineSearch className="mx-5 self-center text-xl text-gray-darkGrayLMI" />
         <input
           className="border-0 outline-none h-3 w-60 md:w-72 py-3"
