@@ -4,7 +4,7 @@ import BrandNavbar from "./components/BrandNavbar";
 
 const Routes = () => {
   return (
-    <div>
+    <div className="bg-gray-veryLightGrayLMB">
       <div>
         <BrandNavbar />
       </div>
