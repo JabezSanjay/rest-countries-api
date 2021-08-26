@@ -2,6 +2,7 @@ import React from "react";
 import BrandInput from "./components/BrandInput";
 import BrandNavbar from "./components/BrandNavbar";
 import BrandOption from "./components/BrandOption";
+import HomePageCard from "./components/HomePageCard";
 
 const Routes = () => {
   return (
@@ -15,6 +16,9 @@ const Routes = () => {
         <div>
           <BrandOption />
         </div>
+      </div>
+      <div>
+        <HomePageCard />
       </div>
     </div>
   );

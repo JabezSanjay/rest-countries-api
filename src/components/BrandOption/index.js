@@ -51,7 +51,7 @@ const BrandOption = () => {
         </button>
       </div>
       {isOpen && (
-        <div className="shadow-md bg-white-default w-60 text-blue-veryDarkLMT rounded-lg mt-2 ml-4">
+        <div className="shadow-md bg-white-default w-60 text-blue-veryDarkLMT rounded-lg ml-4 absolute">
           <OutsideAlerter open={(value) => setIsOpen(value)}>
             <ul className="list-none text-blue-veryDarkLM  text-sm font-semibold pl-5 py-4">
               {regions.map((region) => (
