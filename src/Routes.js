@@ -1,26 +1,16 @@
 import React from "react";
-import BrandInput from "./components/BrandInput";
-import BrandNavbar from "./components/BrandNavbar";
-import BrandOption from "./components/BrandOption";
-import HomePageCard from "./components/HomePageCard";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import DetailPage from "./components/Pages/DetailPage";
+import HomePage from "./components/Pages/HomePage";
 
 const Routes = () => {
   return (
-    <div className="bg-gray-veryLightGrayLMB min-h-screen">
-      <BrandNavbar />
-
-      <div className="block justify-between lg:flex ">
-        <div>
-          <BrandInput />
-        </div>
-        <div>
-          <BrandOption />
-        </div>
-      </div>
-      <div>
-        <HomePageCard />
-      </div>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact component={HomePage} />
+        <Route path="/detail-page" exact component={DetailPage} />
+      </Switch>
+    </Router>
   );
 };
 
