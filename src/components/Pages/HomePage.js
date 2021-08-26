@@ -6,19 +6,21 @@ import BrandNavbar from "../BrandNavbar";
 
 const HomePage = () => {
   return (
-    <div className="bg-gray-veryLightGrayLMB min-h-screen">
-      <BrandNavbar />
+    <div className="dark">
+      <div className="bg-gray-veryLightGrayLMB dark:bg-blue-veryDarkDMB min-h-screen">
+        <BrandNavbar />
 
-      <div className="block justify-between lg:flex ">
-        <div>
-          <BrandInput />
+        <div className="block justify-between lg:flex ">
+          <div>
+            <BrandInput />
+          </div>
+          <div>
+            <BrandOption />
+          </div>
         </div>
         <div>
-          <BrandOption />
+          <HomePageCard />
         </div>
-      </div>
-      <div>
-        <HomePageCard />
       </div>
     </div>
   );
