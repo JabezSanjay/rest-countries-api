@@ -2,7 +2,7 @@ import React from "react";
 
 const HomePageCard = () => {
   return (
-    <div className="dark">
+    <div>
       <div className="shadow-md max-w-xs w-64 bg-white-default dark:bg-blue-dark dark:text-white-default  m-auto rounded-md">
         <img
           src="https://restcountries.eu/data/umi.svg"

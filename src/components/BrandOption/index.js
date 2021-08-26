@@ -40,7 +40,7 @@ const BrandOption = () => {
   };
 
   return (
-    <div className="dark">
+    <div>
       <div className="shadow-md bg-white-default w-60 flex justify-center text-blue-veryDarkLMT dark:bg-blue-dark  dark:text-gray-veryLightGrayLMB rounded-lg m-4 mr-2 md:mr-20 mt-10">
         <button
           className="text-blue-veryDarkLM  font-semibold p-4 text-sm flex"
