@@ -16,6 +16,7 @@ export const getSearchCountries = async (search) => {
     );
     return searchedCountries.data;
   } catch (error) {
-    return error;
+    console.log(error);
+    return error.message;
   }
 };

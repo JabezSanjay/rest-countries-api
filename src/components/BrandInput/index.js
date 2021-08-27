@@ -3,10 +3,9 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { getSearchCountries } from "../../helper";
 
 const BrandInput = ({ onSearchCountries }) => {
-  const [type, setType] = useState("");
-
   const changeHandler = (search) => {
     getSearchCountries(search).then((searchedCountries) => {
+      console.log(searchedCountries);
       searchedCountries !== "" && onSearchCountries(searchedCountries);
     });
   };

@@ -10,7 +10,7 @@ const HomePage = () => {
   const [isDark, setIsDark] = useState(isDarkMode());
   const [countries, setCountries] = useState([]);
   const [searchedCountries, setSearchedCountries] = useState([]);
-  console.log(searchedCountries);
+  // console.log(searchedCountries);
 
   useEffect(() => {
     localStorage.setItem("isDark", false);
@@ -37,7 +37,7 @@ const HomePage = () => {
             <BrandOption />
           </div>
         </div>
-        {searchedCountries === [] || searchedCountries === "" ? (
+        {searchedCountries.length == 0 ? (
           <div className="flex flex-wrap justify-center">
             {countries.map((country) => (
               <HomePageCard
