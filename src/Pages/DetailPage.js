@@ -1,5 +1,5 @@
 import React from "react";
-import BrandNavbar from "../BrandNavbar";
+import BrandNavbar from "../components/BrandNavbar";
 
 const DetailPage = () => {
   return (

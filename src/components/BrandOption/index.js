@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { GoChevronDown } from "react-icons/go";
-import OutsideAlerter from "../utils/OutsideAlerter";
+import OutsideAlerter from "../../utils/OutsideAlerter";
 
 const BrandOption = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,7 +51,7 @@ const BrandOption = () => {
         </button>
       </div>
       {isOpen && (
-        <div className="shadow-md bg-white-defaul dark:bg-blue-dark w-60 text-blue-veryDarkLMT dark:text-gray-veryLightGrayLMB rounded-lg mt-2 ml-4 absolute">
+        <div className="shadow-md bg-white-default dark:bg-blue-dark w-60 text-blue-veryDarkLMT dark:text-gray-veryLightGrayLMB rounded-lg mt-2 ml-4 absolute">
           <OutsideAlerter open={(value) => setIsOpen(value)}>
             <ul className="list-none text-blue-veryDarkLM  text-sm font-semibold pl-5 py-4">
               {regions.map((region) => (

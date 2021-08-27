@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { HiOutlineMoon } from "react-icons/hi";
-import { isDarkMode } from "../utils/darkModeFunction";
+import { isDarkMode } from "../../utils/darkModeFunction";
 
 const BrandNavbar = ({ dark, reload }) => {
   const [isDark, setIsDark] = useState(isDarkMode());
