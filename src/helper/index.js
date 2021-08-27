@@ -8,3 +8,14 @@ export const getAllCountries = async () => {
     return error;
   }
 };
+
+export const getSearchCountries = async (search) => {
+  try {
+    const searchedCountries = await Axios.get(
+      `https://restcountries.eu/rest/v2/name/${search}`
+    );
+    return searchedCountries.data;
+  } catch (error) {
+    return error;
+  }
+};

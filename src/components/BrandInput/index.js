@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
+import { getSearchCountries } from "../../helper";
 
-const BrandInput = () => {
+const BrandInput = ({ onSearchCountries }) => {
+  const [type, setType] = useState("");
+
+  const changeHandler = (search) => {
+    getSearchCountries(search).then((searchedCountries) => {
+      searchedCountries !== "" && onSearchCountries(searchedCountries);
+    });
+  };
+
   return (
     <div>
       <div className="flex px-3 py-3 m-3 align-middle shadow-md w-96 rounded bg-white-default dark:bg-blue-dark dark:text-white-default  ml-3 mt-10 lg:ml-20">
@@ -10,6 +19,9 @@ const BrandInput = () => {
           className="border-0 outline-none h-8 w-60 lg:w-72 py-3 dark:bg-blue-dark dark:placeholder-white-default"
           type="text"
           placeholder="Search for a country"
+          onChange={(e) => {
+            changeHandler(e.target.value);
+          }}
         />
       </div>
     </div>

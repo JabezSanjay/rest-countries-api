@@ -9,6 +9,8 @@ import { getAllCountries } from "../helper";
 const HomePage = () => {
   const [isDark, setIsDark] = useState(isDarkMode());
   const [countries, setCountries] = useState([]);
+  const [searchedCountries, setSearchedCountries] = useState([]);
+  console.log(searchedCountries);
 
   useEffect(() => {
     localStorage.setItem("isDark", false);
@@ -25,24 +27,43 @@ const HomePage = () => {
 
         <div className="block justify-between lg:flex ">
           <div>
-            <BrandInput />
+            <BrandInput
+              onSearchCountries={(value) => {
+                setSearchedCountries(value);
+              }}
+            />
           </div>
           <div>
             <BrandOption />
           </div>
         </div>
-        <div className="flex flex-wrap justify-center">
-          {countries.map((country) => (
-            <HomePageCard
-              key={country.name}
-              countryName={country.name}
-              countryFlag={country.flag}
-              countryPopulation={country.population}
-              countryRegion={country.region}
-              countryCapital={country.capital}
-            />
-          ))}
-        </div>
+        {searchedCountries === [] || searchedCountries === "" ? (
+          <div className="flex flex-wrap justify-center">
+            {countries.map((country) => (
+              <HomePageCard
+                key={country.name}
+                countryName={country.name}
+                countryFlag={country.flag}
+                countryPopulation={country.population}
+                countryRegion={country.region}
+                countryCapital={country.capital}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="flex flex-wrap justify-center">
+            {searchedCountries.map((country) => (
+              <HomePageCard
+                key={country.name}
+                countryName={country.name}
+                countryFlag={country.flag}
+                countryPopulation={country.population}
+                countryRegion={country.region}
+                countryCapital={country.capital}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
