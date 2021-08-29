@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { GoChevronDown } from "react-icons/go";
+import { getSelectedRegion } from "../../helper";
 import OutsideAlerter from "../../utils/OutsideAlerter";
 
-const BrandOption = () => {
+const BrandOption = ({ onSelectedRegion }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [regionName, setRegionName] = useState("Filter by Region");
 
@@ -17,7 +18,7 @@ const BrandOption = () => {
     },
     {
       name: "America",
-      value: "america",
+      value: "americas",
     },
     {
       name: "Asia",
@@ -34,7 +35,9 @@ const BrandOption = () => {
   ];
 
   const handleClick = (value, name) => {
-    console.log(value);
+    getSelectedRegion(value).then((countries) => {
+      onSelectedRegion(countries);
+    });
     setIsOpen(false);
     setRegionName(name);
   };

@@ -16,7 +16,18 @@ export const getSearchCountries = async (search) => {
     );
     return searchedCountries.data;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
+    return error.message;
+  }
+};
+
+export const getSelectedRegion = async (selected) => {
+  try {
+    const selectedRegion = await Axios.get(
+      `https://restcountries.eu/rest/v2/region/${selected}`
+    );
+    return selectedRegion.data;
+  } catch (error) {
     return error.message;
   }
 };

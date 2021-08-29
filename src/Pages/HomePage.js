@@ -10,6 +10,7 @@ const HomePage = () => {
   const [isDark, setIsDark] = useState(isDarkMode());
   const [countries, setCountries] = useState([]);
   const [searchedCountries, setSearchedCountries] = useState([]);
+  const [selectedRegion, setSelectedRegion] = useState([]);
   // console.log(searchedCountries);
 
   useEffect(() => {
@@ -20,8 +21,9 @@ const HomePage = () => {
     });
   }, []);
 
-  console.log(countries);
+  // console.log(countries.length);
   console.log(searchedCountries.length);
+  // console.log(selectedRegion.length);
 
   return (
     <div className={isDark ? "dark" : ""}>
@@ -33,16 +35,39 @@ const HomePage = () => {
             <BrandInput
               onSearchCountries={(value) => {
                 setSearchedCountries(value);
+                setSelectedRegion([]);
               }}
             />
           </div>
           <div>
-            <BrandOption />
+            <BrandOption
+              onSelectedRegion={(value) => {
+                setSelectedRegion(value);
+                setSearchedCountries([]);
+              }}
+            />
           </div>
         </div>
-        {searchedCountries.length == 35 ? (
+        {searchedCountries.length !== 0 &&
+        searchedCountries.length !== 35 &&
+        selectedRegion.length === 0 ? (
           <div className="flex flex-wrap justify-center">
-            {countries.map((country) => (
+            {searchedCountries.map((country) => (
+              <HomePageCard
+                key={country.name}
+                countryName={country.name}
+                countryFlag={country.flag}
+                countryPopulation={country.population}
+                countryRegion={country.region}
+                countryCapital={country.capital}
+              />
+            ))}
+          </div>
+        ) : searchedCountries.length !== 0 &&
+          searchedCountries.length !== 0 &&
+          selectedRegion.length !== 0 ? (
+          <div className="flex flex-wrap justify-center">
+            {selectedRegion.map((country) => (
               <HomePageCard
                 key={country.name}
                 countryName={country.name}
@@ -55,7 +80,7 @@ const HomePage = () => {
           </div>
         ) : (
           <div className="flex flex-wrap justify-center">
-            {searchedCountries.map((country) => (
+            {countries.map((country) => (
               <HomePageCard
                 key={country.name}
                 countryName={country.name}
