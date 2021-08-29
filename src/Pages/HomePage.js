@@ -20,6 +20,9 @@ const HomePage = () => {
     });
   }, []);
 
+  console.log(countries);
+  console.log(searchedCountries.length);
+
   return (
     <div className={isDark ? "dark" : ""}>
       <div className="bg-gray-veryLightGrayLMB dark:bg-blue-veryDarkDMB min-h-screen">
@@ -37,7 +40,7 @@ const HomePage = () => {
             <BrandOption />
           </div>
         </div>
-        {searchedCountries.length == 0 ? (
+        {searchedCountries.length == 35 ? (
           <div className="flex flex-wrap justify-center">
             {countries.map((country) => (
               <HomePageCard
