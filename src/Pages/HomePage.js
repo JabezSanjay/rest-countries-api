@@ -63,8 +63,8 @@ const HomePage = () => {
               />
             ))}
           </div>
-        ) : searchedCountries.length !== 0 &&
-          searchedCountries.length !== 0 &&
+        ) : searchedCountries.length !== 0 ||
+          searchedCountries.length !== 0 ||
           selectedRegion.length !== 0 ? (
           <div className="flex flex-wrap justify-center">
             {selectedRegion.map((country) => (
