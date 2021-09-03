@@ -6,12 +6,13 @@ const initialState = {
   pending: false,
   error: false,
   isDark: false,
+  selectedRegion: "Filter Region",
 };
 
 export const getCountries = createAsyncThunk(
   "countries/getCountries",
   async (value = "all") => {
-    if (value == "all") {
+    if (value === "all") {
       const res = await axios.get(`https://restcountries.eu/rest/v2/all`);
       return res.data;
     } else {
@@ -24,25 +25,30 @@ export const getCountries = createAsyncThunk(
 export const countrySlice = createSlice({
   name: "countries",
   initialState,
+  reducers: {
+    changeDark: (state) => {
+      state.isDark = !state.isDark;
+    },
+    changeSelectedRegion: (state, action) => {
+      state.selectedRegion = action.payload;
+    },
+  },
   extraReducers: {
     [getCountries.pending]: (state) => {
       state.pending = true;
-      console.log(state.pending);
     },
     [getCountries.fulfilled]: (state, action) => {
       state.pending = false;
       state.countries = action.payload;
-      console.log(state.countries);
     },
     [getCountries.rejected]: (state) => {
       state.pending = false;
       state.error = true;
-      console.log(state.error);
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-// export const { incrementByAmount } = counterSlice.actions;
+export const { changeDark, changeSelectedRegion } = countrySlice.actions;
 
 export default countrySlice.reducer;

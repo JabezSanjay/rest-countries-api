@@ -7,7 +7,6 @@ const HomePageCard = ({
   countryRegion,
   countryCapital,
 }) => {
-  // console.log(countryName);
   return (
     <div className="mx-14 my-7">
       <div className="shadow-md max-w-xs w-64 bg-white-default dark:bg-blue-dark dark:text-white-default  rounded-md">

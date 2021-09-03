@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { GoChevronDown } from "react-icons/go";
-import { getSelectedRegion } from "../../helper";
-import OutsideAlerter from "../../utils/OutsideAlerter";
 
-const BrandOption = ({ onSelectedRegion }) => {
+import OutsideAlerter from "../../utils/OutsideAlerter";
+import { changeSelectedRegion, getCountries } from "../../redux/reducers";
+
+import { useDispatch, useSelector } from "react-redux";
+
+const BrandOption = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [regionName, setRegionName] = useState("Filter by Region");
+  const selectedRegion = useSelector((state) => state.selectedRegion);
+
+  const dispatch = useDispatch();
 
   const handleShow = () => {
     setIsOpen(!isOpen);
@@ -35,11 +40,13 @@ const BrandOption = ({ onSelectedRegion }) => {
   ];
 
   const handleClick = (value, name) => {
-    getSelectedRegion(value).then((countries) => {
-      onSelectedRegion(countries);
-    });
     setIsOpen(false);
-    setRegionName(name);
+    dispatch(changeSelectedRegion(name));
+    if (value === "all") {
+      dispatch(getCountries(`all`));
+    } else {
+      dispatch(getCountries(`region/${value}`));
+    }
   };
 
   return (
@@ -49,7 +56,7 @@ const BrandOption = ({ onSelectedRegion }) => {
           className="text-blue-veryDarkLM  font-semibold p-4 text-sm flex"
           onClick={handleShow}
         >
-          <span>{regionName}</span>
+          <span>{selectedRegion}</span>
           <GoChevronDown className="self-center ml-20" />
         </button>
       </div>

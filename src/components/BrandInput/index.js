@@ -1,6 +1,6 @@
 import React from "react";
 import { AiOutlineSearch } from "react-icons/ai";
-import { getCountries } from "../../redux/reducers";
+import { changeSelectedRegion, getCountries } from "../../redux/reducers";
 import { useDispatch } from "react-redux";
 
 const BrandInput = () => {
@@ -15,6 +15,7 @@ const BrandInput = () => {
           type="text"
           placeholder="Search for a country"
           onChange={(e) => {
+            dispatch(changeSelectedRegion("Filter Region"));
             if (e.target.value === "") {
               dispatch(getCountries(`all`));
             } else {

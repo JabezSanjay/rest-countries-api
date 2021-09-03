@@ -1,18 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { HiOutlineMoon } from "react-icons/hi";
-import { isDarkMode } from "../../utils/darkModeFunction";
+import { useDispatch } from "react-redux";
+import { changeDark } from "../../redux/reducers";
 
-const BrandNavbar = ({ dark, reload }) => {
-  const [isDark, setIsDark] = useState(isDarkMode());
-
-  const changeTheme = () => {
-    setIsDark(!isDark);
-    localStorage.setItem("isDark", isDark);
-  };
-
-  useEffect(() => {
-    dark(isDark);
-  }, [dark, isDark]);
+const BrandNavbar = () => {
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -23,7 +15,12 @@ const BrandNavbar = ({ dark, reload }) => {
           </a>
         </div>
         <div className="text-lg self-center mr-2 md:mr-16 ">
-          <button className="flex text-base" onClick={changeTheme}>
+          <button
+            className="flex text-base"
+            onClick={() => {
+              dispatch(changeDark());
+            }}
+          >
             <HiOutlineMoon className="self-center md:text-xl mr-2" />
             <h6 className="md:text-lg font-semibold">Dark Mode</h6>
           </button>
