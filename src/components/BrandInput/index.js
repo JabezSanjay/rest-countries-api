@@ -1,14 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { AiOutlineSearch } from "react-icons/ai";
-import { getSearchCountries } from "../../helper";
+import { getCountries } from "../../redux/reducers";
+import { useDispatch } from "react-redux";
 
-const BrandInput = ({ onSearchCountries }) => {
-  const changeHandler = (search) => {
-    getSearchCountries(search).then((searchedCountries) => {
-      // console.log(searchedCountries);
-      searchedCountries !== "" && onSearchCountries(searchedCountries);
-    });
-  };
+const BrandInput = () => {
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -19,7 +15,11 @@ const BrandInput = ({ onSearchCountries }) => {
           type="text"
           placeholder="Search for a country"
           onChange={(e) => {
-            changeHandler(e.target.value);
+            if (e.target.value === "") {
+              dispatch(getCountries(`all`));
+            } else {
+              dispatch(getCountries(`name/${e.target.value}`));
+            }
           }}
         />
       </div>

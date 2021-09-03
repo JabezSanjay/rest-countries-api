@@ -3,5 +3,12 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import Routes from "./Routes";
 import { store } from "./redux/store";
+import { Provider } from "react-redux";
 
-ReactDOM.render(<Routes />, document.getElementById("root"));
+ReactDOM.render(
+  <Provider store={store}>
+    <Routes />
+  </Provider>,
+
+  document.getElementById("root")
+);
