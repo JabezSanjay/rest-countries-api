@@ -3,6 +3,7 @@ import axios from "axios";
 
 const initialState = {
   countries: [],
+  country: [],
   pending: false,
   error: false,
   isDark: false,
@@ -17,6 +18,7 @@ export const getCountries = createAsyncThunk(
       return res.data;
     } else {
       const res = await axios.get(`https://restcountries.eu/rest/v2/${value}`);
+      console.log(res.data);
       return res.data;
     }
   }
