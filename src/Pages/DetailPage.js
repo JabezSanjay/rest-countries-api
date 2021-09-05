@@ -9,14 +9,16 @@ const DetailPage = () => {
 
   return (
     <div className={isDark ? "dark" : ""}>
-      <div className="bg-gray-veryLightGrayLMB dark:bg-blue-veryDarkDMB ">
-        <BrandNavbar />
-      </div>
-      <div className="m-14">
-        <BrandButton />
-      </div>
-      <div>
-        <DetailPageCard />
+      <div className="bg-gray-veryLightGrayLMB dark:bg-blue-veryDarkDMB h-screen">
+        <div className="bg-gray-veryLightGrayLMB dark:bg-blue-veryDarkDMB ">
+          <BrandNavbar />
+        </div>
+        <div className="my-14 ml-20">
+          <BrandButton />
+        </div>
+        <div>
+          <DetailPageCard />
+        </div>
       </div>
     </div>
   );
