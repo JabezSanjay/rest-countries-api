@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from "react";
 import BrandBorderButton from "../BrandBorderButton";
-import { useSelector, useDispatch } from "react-redux";
-import { getCountries } from "../../redux/reducers";
+
 import axios from "axios";
 
 const DetailPageCard = ({ id }) => {
   const [country, setCountry] = useState([]);
-  const countries = useSelector((state) => state.countries);
-  // console.log(countries);
+
   console.log(country);
 
   const preload = (id) => {
     axios
       .get(`https://restcountries.eu/rest/v2/name/${id}`)
       .then((res) => {
-        // console.log(res.data);
         setCountry(res.data);
       })
       .catch((error) => {
@@ -28,20 +25,23 @@ const DetailPageCard = ({ id }) => {
   }, []);
 
   return (
-    <div className="flex mx-20 ">
+    <div className="flex w-screen">
       {country.map((countryValue) => (
-        <div key={countryValue.nativeName}>
+        <div key={countryValue.nativeName} className="flex pl-20">
           <div>
             <img
               src={countryValue.flag}
               alt="country"
-              className="h-96 object-cover"
+              className="object-cover"
+              style={{ height: "30rem" }}
             />
           </div>
-          <div className="mx-24 bg-gray-veryLightGrayLMB dark:bg-blue-veryDarkDMB  dark:text-white-default">
-            <div className="text-3xl font-extrabold my-8">Belgium</div>
+          <div className="mx-20  text-2xl bg-gray-veryLightGrayLMB dark:bg-blue-veryDarkDMB dark:text-white-default">
+            <div className="text-5xl font-extrabold my-8">
+              {countryValue.name}
+            </div>
             <div className="flex">
-              <div className="mr-32 flex flex-col justify-between h-44">
+              <div className="mr-0 flex flex-col justify-between h-64">
                 <p>
                   <span className="font-bold">Native Name: </span>
                   {countryValue.nativeName}
@@ -63,18 +63,18 @@ const DetailPageCard = ({ id }) => {
                   {countryValue.capital}
                 </p>
               </div>
-              <div className=" flex flex-col justify-between h-24">
+              <div className=" flex flex-col justify-between h-32">
                 <p>
                   <span className="font-bold">Top Level Domain: </span>
                   {countryValue.topLevelDomain}
                 </p>
                 <p>
                   <span className="font-bold">Currencies: </span>
-                  {country.currencies}
+                  {countryValue.currencies[0].code}
                 </p>
                 <p>
                   <span className="font-bold">Languages: </span>
-                  Europe
+                  {countryValue.region}
                 </p>
               </div>
             </div>
