@@ -5,8 +5,8 @@ import DetailPage from "./Pages/DetailPage";
 import HomePage from "./Pages/HomePage";
 
 const Routes = () => {
-  const name = useSelector((state) => state.country);
-  console.log(name);
+  // const name = useSelector((state) => state.country);
+  // console.log(name);
 
   return (
     <Router>
