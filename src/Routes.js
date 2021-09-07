@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import DetailPage from "./Pages/DetailPage";
 import HomePage from "./Pages/HomePage";

@@ -4,7 +4,7 @@ import BrandButton from "../components/BrandButton";
 import BrandNavbar from "../components/BrandNavbar";
 import DetailPageCard from "../components/DetailPageCard";
 
-const DetailPage = () => {
+const DetailPage = ({ match }) => {
   const isDark = useSelector((state) => state.isDark);
 
   return (
@@ -17,7 +17,7 @@ const DetailPage = () => {
           <BrandButton />
         </div>
         <div>
-          <DetailPageCard />
+          <DetailPageCard id={match.params.id} />
         </div>
       </div>
     </div>
