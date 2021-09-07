@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { getCountries } from "../../redux/reducers";
+import { Link } from "react-router-dom";
 
 const HomePageCard = ({
   countryName,
@@ -10,17 +10,12 @@ const HomePageCard = ({
   countryRegion,
   countryCapital,
 }) => {
-  const dispatch = useDispatch();
-  const history = useHistory();
-  const handleClick = (name) => {
-    dispatch(getCountries(`name/${name}`));
-    history.push(`/detail-page/${name}`);
-  };
+  // console.log(countryName);
 
   return (
-    <div
+    <Link
       className="mx-14 my-7 cursor-pointer"
-      onClick={() => handleClick(countryName)}
+      to={`/detail-page/${countryName}`}
     >
       <div className="shadow-md max-w-xs w-64 bg-white-default dark:bg-blue-dark dark:text-white-default  rounded-md">
         <img
@@ -46,7 +41,7 @@ const HomePageCard = ({
           </p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
