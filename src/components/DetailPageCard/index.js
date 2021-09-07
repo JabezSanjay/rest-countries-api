@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import BrandBorderButton from "../BrandBorderButton";
 
 import axios from "axios";
+import styled from "styled-components";
 
 const DetailPageCard = ({ id }) => {
   const [country, setCountry] = useState([]);
@@ -24,16 +25,23 @@ const DetailPageCard = ({ id }) => {
     preload(id);
   }, []);
 
+  const Image = styled.img`
+    height: 30rem;
+    width: 45rem;
+    @media (max-width: 768px) {
+      width: 30rem;
+    }
+  `;
+
   return (
     <div className="flex w-screen">
       {country.map((countryValue) => (
         <div key={countryValue.nativeName} className="flex pl-20">
           <div>
-            <img
+            <Image
               src={countryValue.flag}
               alt="country"
               className="object-cover"
-              style={{ height: "30rem" }}
             />
           </div>
           <div className="mx-20  text-2xl bg-gray-veryLightGrayLMB dark:bg-blue-veryDarkDMB dark:text-white-default">
